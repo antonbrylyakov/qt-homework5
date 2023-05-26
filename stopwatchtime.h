@@ -5,6 +5,7 @@
 #include <QString>
 
 // Класс для хранения времени секундомера
+// Класс QTaimeStamp, как я понял, еще не реализован
 class StopWatchTime
 {
 public:
@@ -13,6 +14,7 @@ public:
     unsigned char hours() const;
     unsigned char minutes() const;
     unsigned char seconds() const;
+    // Десятые доли секунды
     unsigned char tenths() const;
     QString toString() const;
 

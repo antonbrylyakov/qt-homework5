@@ -41,8 +41,6 @@ protected:
     StopWatchStorage m_totalStorage;
     // Хранилище времени круга
     StopWatchStorage m_currentCircleStorage;
-    // таймаут таймера
-    static const int TIMEOUT = 10;
 };
 
 #endif // STOPWATCH_H

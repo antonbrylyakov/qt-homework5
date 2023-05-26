@@ -19,6 +19,9 @@ bool StopWatch::isStarted() const
 
 void StopWatch::start()
 {
+    // таймаут таймера
+    static const int TIMEOUT = 10;
+
     if (m_started)
     {
         return;
