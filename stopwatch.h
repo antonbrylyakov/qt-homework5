@@ -17,11 +17,8 @@ public:
     bool isStarted() const;
 
 signals:
-    void sig_Started();
-    void sig_Stopped();
     void sig_TimeChanged(StopWatchTime time);
     void sig_CircleFinished(int circleNumber, StopWatchTime time);
-    void sig_Reset();
 
 public slots:
     void start();

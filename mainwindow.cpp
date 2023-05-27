@@ -8,26 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     m_stopWatch = new StopWatch(this);
 
-    connect(m_stopWatch, &StopWatch::sig_Started, [this]()
-    {
-        ui->pb_Start->setText("Стоп");
-        ui->pb_Circle->setEnabled(true);
-    });
-
-    connect(m_stopWatch, &StopWatch::sig_Stopped, [this]()
-    {
-        ui->pb_Start->setText("Старт");
-        ui->pb_Circle->setEnabled(false);
-    });
-
     connect(m_stopWatch, &StopWatch::sig_TimeChanged, [this](StopWatchTime time)
     {
         ui->lb_Time->setText(time.toString());
-    });
-
-    connect(m_stopWatch, &StopWatch::sig_Reset, [this]()
-    {
-        ui->te_Circles->clear();
     });
 
     connect(m_stopWatch, &StopWatch::sig_CircleFinished, [this](int circleNum, StopWatchTime time)
@@ -50,10 +33,14 @@ void MainWindow::on_pb_Start_clicked()
     if (m_stopWatch->isStarted())
     {
         m_stopWatch->stop();
+        ui->pb_Start->setText("Старт");
+        ui->pb_Circle->setEnabled(false);
     }
     else
     {
         m_stopWatch->start();
+        ui->pb_Start->setText("Стоп");
+        ui->pb_Circle->setEnabled(true);
     }
 }
 

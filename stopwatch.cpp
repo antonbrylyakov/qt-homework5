@@ -32,7 +32,6 @@ void StopWatch::start()
     m_totalStorage.start(currentTime);
     m_currentCircleStorage.start(currentTime);
     m_timer->start(TIMEOUT);
-    emit sig_Started();
 }
 
 void StopWatch::stop()
@@ -48,7 +47,6 @@ void StopWatch::stop()
     m_totalStorage.stop(currentTime);
     m_currentCircleStorage.stop(currentTime);
     timerTimeout();
-    emit sig_Stopped();
 }
 
 void StopWatch::circle()
@@ -71,7 +69,6 @@ void StopWatch::reset()
     m_totalStorage.reset(currentTime);
     m_currentCircleStorage.reset(currentTime);
     timerTimeout();
-    emit sig_Reset();
 }
 
 void StopWatch::timerTimeout()
